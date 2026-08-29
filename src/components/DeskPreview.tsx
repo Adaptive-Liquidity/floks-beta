@@ -1,19 +1,12 @@
 export function DeskPreview({ still = false }: { still?: boolean }) {
   return (
-    <aside className="desk-preview" aria-label="Preview of an Agent Computer desk">
-      <header>
-        <span>This bot has this computer</span>
-        <span>{still ? "Waiting" : "Ready"}</span>
-      </header>
-      <div className="screen">
-        <h3>FLOKS fixture</h3>
-        <p>A private Chrome, files, and a terminal. Pair in Grok. Watch the screen here.</p>
-        <span className="fixture-btn">Submit</span>
+    <aside className="computer-card" aria-label="Preview of an Agent Computer desk">
+      <div className="computer-bar"><span className={`status-dot ${still ? "sleeping" : ""}`} /><span>PC-01 / RESEARCH</span><span className="computer-state">{still ? "WAITING" : "READY"}</span></div>
+      <div className="computer-screen">
+        <div className="browser-chrome"><i/><i/><i/><span>research.floks.local</span></div>
+        <div className="screen-body"><p className="mono-label">ACTIVE SESSION</p><h3>Same browser.<br/>Still logged in.</h3><div className="screen-lines"><i/><i/><i/></div><div className="node-avatar"><span/><span/></div></div>
       </div>
-      <div className="eyes" aria-hidden="true">
-        <i className={still ? "eye still" : "eye"} />
-        <i className={still ? "eye still" : "eye"} />
-      </div>
+      <footer className="computer-meta"><span>Chrome</span><span>Files</span><span>Terminal</span><b>Private</b></footer>
     </aside>
   );
 }
